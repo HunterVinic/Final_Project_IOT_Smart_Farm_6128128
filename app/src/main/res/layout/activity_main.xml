@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="195dp"
+        android:text="Re Final Exam"
+        tools:ignore="MissingConstraints"
+        android:gravity="center"
+        android:textSize="50sp"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="50dp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="115dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Moisture Setting:"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="34dp"
+                tools:layout_editor_absoluteY="131dp" />
+
+            <SeekBar
+                android:id="@+id/seekBar1"
+                android:layout_width="229dp"
+                android:layout_height="67dp"
+                android:max="100"
+                android:progress="5"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="136dp"
+                tools:layout_editor_absoluteY="106dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TimeB:"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="34dp"
+                tools:layout_editor_absoluteY="273dp" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Value A"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="100dp"
+                tools:layout_editor_absoluteY="261dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TimeA:"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="34dp"
+                tools:layout_editor_absoluteY="273dp" />
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Value B"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="100dp"
+                tools:layout_editor_absoluteY="343dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="506dp">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:text="FERTILIZER B"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="213dp"
+                tools:layout_editor_absoluteY="459dp" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="144dp"
+                android:layout_height="63dp"
+                android:text="FERTILIZER A"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="53dp"
+                tools:layout_editor_absoluteY="459dp" />
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>

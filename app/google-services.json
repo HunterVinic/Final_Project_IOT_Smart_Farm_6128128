@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1039690648638",
+    "project_id": "iot-6128128",
+    "storage_bucket": "iot-6128128.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039690648638:android:616255146293f43f3bd56f",
+        "android_client_info": {
+          "package_name": "com.example.finalexam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039690648638-hnml3sr53md9uc6u14tvkl375uh1blcr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDZziX7zyj60avj2LZlHspMuAsj_03-MU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039690648638-hnml3sr53md9uc6u14tvkl375uh1blcr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
