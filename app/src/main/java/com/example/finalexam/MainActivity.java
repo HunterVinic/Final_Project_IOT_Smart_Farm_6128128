@@ -2,8 +2,12 @@ package com.example.finalexam;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -18,12 +22,16 @@ public class MainActivity extends AppCompatActivity {
 
      Button buttonON;
      Button buttonOFF;
+     Button Load;
+     Button Config;
+     Button Monitor;
+     Button Manual;
+
      TextView textView1;
      TextView textView2;
+     TextView textView3;
      SeekBar seekBar;
      DatabaseReference dref;
-     String status;
-     int fert =0;
 
 
     @Override
@@ -31,19 +39,51 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        buttonON = findViewById(R.id.button2);
-        buttonOFF = findViewById(R.id.button);
-        textView1 = findViewById(R.id.editText2);
-        textView2 = findViewById(R.id.editText1);
+        ImageView imageView = (ImageView) findViewById(R.id.image);
+        buttonON = findViewById(R.id.on);
+        buttonOFF = findViewById(R.id.off);
+        Config = findViewById(R.id.button);
+        Monitor = findViewById(R.id.button2);
+        Manual = findViewById(R.id.button3);
+
+        Load = findViewById(R.id.load);
+
+        Config.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Config.class);
+                startActivity(intent);
+
+            }
+        });
+
+        Monitor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Monitor.class);
+                startActivity(intent);
+
+            }
+        });
+
+        Manual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                startActivity(intent);
+
+            }
+        });
+
+        textView1 = findViewById(R.id.start_view);
+        textView2 = findViewById(R.id.date_view);
+        textView3 = findViewById(R.id.automatic_view);
         seekBar = (SeekBar)findViewById(R.id.seekBar1);
-        FirebaseDatabase database1 = FirebaseDatabase.getInstance();
-        DatabaseReference myRef1 = database1.getReference("Fertilizer/Fertilizer2");
-        myRef1.setValue(fert =0);
         dref = FirebaseDatabase.getInstance().getReference();
         dref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String data = String.valueOf(snapshot.child("Fertilizer/Fertilizer A").getValue());
+                String data = String.valueOf(snapshot.child("Mainpage/Start").getValue());
                 textView1.setText(data);
             }
 
@@ -55,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         dref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String data = String.valueOf(snapshot.child("Fertilizer/Fertilizer B").getValue());
+                String data = String.valueOf(snapshot.child("Mainpage/Load").getValue());
                 textView2.setText(data);
             }
 
@@ -66,15 +106,30 @@ public class MainActivity extends AppCompatActivity {
         });
         buttonOFF.setOnClickListener((view) -> {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("Fertilizer/Fertilizer1");
-            myRef.setValue(fert = 1);
+            DatabaseReference myRef = database.getReference("Mainpage/button");
+            myRef.setValue( "OFF");
         });
 
         buttonON.setOnClickListener((view) -> {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("Fertilizer/Fertilizer2");
-            myRef.setValue(fert =1);
+            DatabaseReference myRef = database.getReference("Mainpage/button");
+            myRef.setValue("ON");
         });
+        Load.setOnClickListener(new View.OnClickListener() {
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("Mainpage/Load");
+            DatabaseReference myRef1 = database.getReference("Mainpage/Start");
+            @Override
+            public void onClick(View view) {
+                String Date = textView2.getText().toString();
+                String Start = textView1.getText().toString();
+
+                myRef.setValue(Date);
+                myRef1.setValue(Start);
+            }
+        });
+
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -92,13 +147,21 @@ public class MainActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
+        });
 
+        dref = FirebaseDatabase.getInstance().getReference();
+        dref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String data = String.valueOf(snapshot.child("Mainpage/button").getValue());
+                textView3.setText(data);
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-
-
-    }
-    );
+            }
+        });
 
     }
 }

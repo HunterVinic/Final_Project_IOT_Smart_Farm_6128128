@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">final Exam</string>
+    <string-array name ="spinner1">
+        <item>Day 1</item>
+        <item>Day 2</item>
+        <item>Day 3</item>
+        <item>Day 4</item>
+        <item>Day 5</item>
+        <item>Day 6</item>
+        <item>Day 7</item>
+    </string-array>
+
+    <string-array name ="spinner2">
+        <item>Timeslot1</item>
+        <item>Timeslot2</item>
+        <item>Timeslot3</item>
+        <item>Timeslot4</item>
+        <item>Timeslot5</item>
+        <item>Timeslot6</item>
+        <item>Timeslot7</item>
+        <item>Timeslot8</item>
+
+    </string-array>
 </resources>
